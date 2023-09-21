@@ -113,3 +113,25 @@ function skipVideo(){
     console.log()
    }
 }
+
+main_video.addEventListener('dblclick', function(event) {
+   
+    const x = event.clientX - main_video.getBoundingClientRect().left;
+
+    
+    if (x < main_video.clientWidth / 2) {
+       
+        if ((main_video.currentTime - 10) >= 0) {
+            main_video.currentTime -= 10;
+        } else {
+            main_video.currentTime = 0; 
+        }
+    } else {
+       
+        if ((main_video.currentTime + 10) <= main_video.duration) {
+            main_video.currentTime += 10;
+        } else {
+            main_video.currentTime = main_video.duration; 
+        }
+    }
+});
